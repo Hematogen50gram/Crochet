@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flask AJAX Counter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+<div class="projects">
+    <button class="tab-button" onclick="openAddDetailDialog()">+</button>
+    <div class=tabs-container id="tabs-container">
+        <button class="tab-button" onclick="switchTab('Tab 1')">Tab 1</button>
+    </div>
+    <div class="project-container">
+        <div class="counter-container">
+            <h1>Rows</h1>
+            <label class="rows-label" id="row_counter">{{ row_counter }}</label>
+            <div class="counter-box">
+                <button class="btn-minus" onclick="updateCounter('decrement')">-</button>
+                <button class="btn-plus" onclick="updateCounter('increment')">+</button>
+            </div>
+            <h1>Stitches</h1>
+            <label class="stitches-label" id="stitches_counter">{{ stitches_counter }}</label>
+
+            <div>
+                <button class="btn-one" onclick="updateStitches(1)">1</button>
+                <button class="btn-two" onclick="updateStitches(2)">2</button>
+                <button class="btn-five" onclick="updateStitches(5)">5</button>
+                <button onclick="updateStitches(0)">X</button>
+            </div>
+        </div>
+        <div class="table-container">
+            <table id="myTable">
+                <thead>
+                <tr>
+                    <th>Row #</th>
+                    <th>Stitches</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <dialog id="myDialog">
+      <h2>Add new detail</h2>
+      <button id="addDetail" onclick="addDetail()">Add</button>
+      <input id="modalInput">
+      <button id="closeButton" onclick="closeDialog()">Cancel</button>
+    </dialog>
+</div>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
